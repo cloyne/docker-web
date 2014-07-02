@@ -3,12 +3,9 @@ server {
     server_name cloyne.net;
     access_log /var/log/nginx/cloyne.net_access.log;
 
-    # We want to resolve container IPs dynamically, so we have to
-    # configure resolver and use a variable to make Nginx resolving
-    # it again and again and not only at start (so that it works if
-    # containers change their IPs)
-    resolver 172.17.42.1 valid=5s;
-    resolver_timeout 5s;
+    # We want to resolve container IPs dynamically, so we use a variable to make
+    # Nginx resolve it again and again and not only at the start (so that it works
+    # if containers change their IPs)
 
     location / {
         return 404;
