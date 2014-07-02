@@ -4,7 +4,7 @@ server {
     access_log /var/log/nginx/cloyne.net_access.log;
 
     location / {
-        return 503;
+        return 404;
     }
 
     location /phppgadmin/ {

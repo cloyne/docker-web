@@ -1,5 +1,5 @@
-FROM cloyne/nginx
+FROM cloyne/nginx-proxy
 
 MAINTAINER Mitar <mitar.docker@tnode.com>
 
-COPY ./etc/cloyne.net /etc/nginx/sites-enabled/cloyne.net
+COPY ./etc/sites-enabled/cloyne.net /etc/nginx/sites-enabled/
