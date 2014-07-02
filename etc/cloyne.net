@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    server_name cloyne.net;
+    access_log /var/log/nginx/cloyne.net_access.log;
+
+    location / {
+        return 503;
+    }
+
+    location /phppgadmin/ {
+        proxy_pass http://phppgadmin.phppgadmin.server2.cloyne.net/phppgadmin/;
+    }
+}
