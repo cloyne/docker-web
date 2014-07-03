@@ -12,7 +12,7 @@ server {
     }
 
     location /phppgadmin/ {
-        set $phppgadmin phppgadmin.phppgadmin.server2.cloyne.net;
+        set $phppgadmin phppgadmin.phppgadmin.server2.docker;
         proxy_pass http://$phppgadmin;
     }
 }
