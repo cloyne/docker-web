@@ -8,11 +8,24 @@ server {
     # if containers change their IPs)
 
     location / {
-        return 404;
+        rewrite ^(.*)$ http://cloyne.org$1 permanent;
     }
 
     location /phppgadmin/ {
         set $phppgadmin phppgadmin.phppgadmin.server2.docker;
         proxy_pass http://$phppgadmin;
     }
+
+    location /phpmyadmin/ {
+        set $phpmyadmin phpmyadmin.phpmyadmin.server2.docker;
+        proxy_pass http://$phpmyadmin;
+    }
+}
+
+server {
+    listen 80;
+    server_name www.cloyne.net *.cloyne.net;
+    access_log /var/log/nginx/www.cloyne.net_access.log;
+
+    rewrite ^(.*)$ http://cloyne.net$1 permanent;
 }
