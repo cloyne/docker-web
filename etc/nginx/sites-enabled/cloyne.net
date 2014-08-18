@@ -20,6 +20,16 @@ server {
         set $phpmyadmin phpmyadmin.phpmyadmin.server2.docker;
         proxy_pass http://$phpmyadmin;
     }
+
+    location /lists/ {
+        set $sympa sympa.sympa.server2.docker;
+        proxy_pass http://$sympa;
+    }
+
+    location /lists-static/ {
+        set $sympa sympa.sympa.server2.docker;
+        proxy_pass http://$sympa;
+    }
 }
 
 server {
