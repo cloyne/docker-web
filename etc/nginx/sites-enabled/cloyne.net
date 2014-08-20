@@ -1,41 +1,7 @@
 server {
     listen 80;
-    server_name cloyne.net;
+    server_name cloyne.net *.cloyne.net;
     access_log /var/log/nginx/cloyne.net_access.log;
 
-    # We want to resolve container IPs dynamically, so we use a variable to make
-    # Nginx resolve it again and again and not only at the start (so that it works
-    # if containers change their IPs)
-
-    location / {
-        rewrite ^(.*)$ http://cloyne.org$1 permanent;
-    }
-
-    location /phppgadmin/ {
-        set $phppgadmin phppgadmin.phppgadmin.server2.docker;
-        proxy_pass http://$phppgadmin;
-    }
-
-    location /phpmyadmin/ {
-        set $phpmyadmin phpmyadmin.phpmyadmin.server2.docker;
-        proxy_pass http://$phpmyadmin;
-    }
-
-    location /lists/ {
-        set $sympa sympa.sympa.server2.docker;
-        proxy_pass http://$sympa;
-    }
-
-    location /lists-static/ {
-        set $sympa sympa.sympa.server2.docker;
-        proxy_pass http://$sympa;
-    }
-}
-
-server {
-    listen 80;
-    server_name www.cloyne.net *.cloyne.net;
-    access_log /var/log/nginx/www.cloyne.net_access.log;
-
-    rewrite ^(.*)$ http://cloyne.net$1 permanent;
+    rewrite ^(.*)$ http://cloyne.org$1 permanent;
 }
