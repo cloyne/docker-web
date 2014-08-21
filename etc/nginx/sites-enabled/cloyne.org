@@ -22,7 +22,7 @@ server {
         proxy_pass http://$phpmyadmin;
     }
 
-    location /lists/ {
+    location /lists {
         set $sympa sympa.sympa.server2.docker;
         proxy_pass http://$sympa;
     }
