@@ -8,27 +8,27 @@ server {
     # if containers change their IPs)
 
     location / {
-        set $blog blog.blog.server2.docker;
+        set $blog blog.server2.docker;
         proxy_pass http://$blog;
     }
 
     location /phppgadmin/ {
-        set $phppgadmin phppgadmin.phppgadmin.server2.docker;
+        set $phppgadmin phppgadmin.server2.docker;
         proxy_pass http://$phppgadmin;
     }
 
     location /phpmyadmin/ {
-        set $phpmyadmin phpmyadmin.phpmyadmin.server2.docker;
+        set $phpmyadmin phpmyadmin.server2.docker;
         proxy_pass http://$phpmyadmin;
     }
 
     location /lists {
-        set $sympa sympa.sympa.server2.docker;
+        set $sympa sympa.server2.docker;
         proxy_pass http://$sympa;
     }
 
     location /lists-static/ {
-        set $sympa sympa.sympa.server2.docker;
+        set $sympa sympa.server2.docker;
         proxy_pass http://$sympa;
     }
 }
