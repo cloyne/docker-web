@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name council.cloyne.org;
+    access_log /var/log/nginx/council.cloyne.org_access.log;
+
+    # We want to resolve container IPs dynamically, so we use a variable to make
+    # Nginx resolve it again and again and not only at the start (so that it works
+    # if containers change their IPs)
+
+    location / {
+        set $council council.server2.docker;
+        proxy_pass http://$council:3000;
+    }
+
+    location /storage {
+        alias /srv/council/meteor/storage;
+    }
+}
