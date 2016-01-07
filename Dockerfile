@@ -1,5 +1,3 @@
-FROM cloyne/nginx-proxy
-
-MAINTAINER Mitar <mitar.docker@tnode.com>
+FROM tozd/nginx-proxy
 
 COPY ./etc /etc
