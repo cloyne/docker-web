@@ -3,5 +3,5 @@ server {
     server_name maintenance.cloyne.org;
     access_log /var/log/nginx/maintenance.cloyne.org_access.log;
 
-    return 301 https://docs.google.com/a/bsc.coop/forms/d/1taewnS_5NPxYXB9amWRhTp0njiS_443DVpPIVTsAbTI/viewform;
+    return 301 https://goo.gl/forms/H7J3YAAKWEIs5U332
 }
