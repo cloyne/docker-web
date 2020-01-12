@@ -3,5 +3,5 @@ server {
     server_name maintenance.cloyne.org;
     access_log /var/log/nginx/maintenance.cloyne.org_access.log;
 
-    return 301 https://goo.gl/forms/H7J3YAAKWEIs5U332
+    return 301 https://goo.gl/forms/H7J3YAAKWEIs5U332;
 }
