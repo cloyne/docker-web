@@ -1,0 +1,7 @@
+server {
+    listen 80;
+    server_name lists.cloyne.org;
+    access_log /var/log/nginx/lists.cloyne.org_access.log;
+
+    return 301 https://cloyne.org/lists;
+}
